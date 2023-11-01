@@ -34,6 +34,12 @@ jobs:
           git checkout -b dist
           git add -A
           git -c user.name='pat' -c user.email='patvice@live.cn' commit -m 'add dist files'
-          git remote add neak https://${{secrets.GIT_TOKEN}}@github.com/showmind/cx-conf.git
-          git push neak dist -f -q
+          remote_addr=`git remote get-url --push origin`
+          remote_addr=`echo $remote_addr|  awk -F'://' '{print $2}'`
+          remote_addr=https://showmind:${{ secrets.GITHUB_TOKEN }}@${remote_addr}
+          git remote add origin ${remote_addr}
+          git push origin dist --force
+
+
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
