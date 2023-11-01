@@ -15,5 +15,11 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: ./scripts/run.py
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: python -m pip install json requests
+      - run: python ./scripts/run.py
       - run: echo "🍏 This job's status is ${{ job.status }}."
