@@ -23,6 +23,6 @@ jobs:
         run: python -m pip install requests
 
       - run: mkdir -p ${{ github.workspace }}/output
-      - run: cd ${{ github.workspace }}/output && python ./scripts/run.py
+      - run: cd ${{ github.workspace }}/output && python ../scripts/run.py
       - run: pwd && ls -lh && git status
       - run: echo "🍏 This job's status is ${{ job.status }}."
