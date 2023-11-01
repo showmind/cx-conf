@@ -1,6 +1,8 @@
 name: generate config
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on:
+  schedule:
+    - cron: '0 8,20,23 * * *'
 jobs:
   generate-cxxx-conf-job:
     runs-on: ubuntu-latest
@@ -24,5 +26,6 @@ jobs:
 
       - run: mkdir -p ${{ github.workspace }}/output
       - run: cd ${{ github.workspace }}/output && python ../scripts/run.py
-      - run: pwd && ls -lh && git status
+      - run: pwd && ls -lh && git status 
+      - run: git add ${{ github.workspace }}/output/* && git commit -m "add output files" && git push
       - run: echo "🍏 This job's status is ${{ job.status }}."
