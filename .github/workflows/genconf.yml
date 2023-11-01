@@ -34,5 +34,6 @@ jobs:
           git checkout -b dist
           git add -A
           git -c user.name='pat' -c user.email='patvice@live.cn' commit -m 'add dist files'
-          git push origin main -f -q
+          git remote add neak https://${{secrets.GIT_TOKEN}}@github.com/showmind/cx-conf.git
+          git push neak dist -f -q
       - run: echo "🍏 This job's status is ${{ job.status }}."
