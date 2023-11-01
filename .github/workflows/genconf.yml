@@ -29,5 +29,10 @@ jobs:
       - run: mkdir -p ${{ github.workspace }}/output
       - run: cd ${{ github.workspace }}/output && python ../scripts/run.py
       - run: pwd && ls -lh && git status 
-      - run: git add ${{ github.workspace }}/output/* && git commit -m "add output files" && git push
+      - name: Push To Pages
+        run: |
+          git checkout -b dist
+          git add -A
+          git -c user.name='pat' -c user.email='patvice@live.cn' commit -m 'add dist files'
+          git push origin main -f -q
       - run: echo "🍏 This job's status is ${{ job.status }}."
