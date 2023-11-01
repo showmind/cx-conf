@@ -20,6 +20,6 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install dependencies
-        run: python -m pip install json requests
+        run: python -m pip install requests
       - run: python ./scripts/run.py
       - run: echo "🍏 This job's status is ${{ job.status }}."
