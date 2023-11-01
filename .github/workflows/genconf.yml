@@ -1,6 +1,8 @@
 name: generate config
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
+  push:
+    branches: [ master ]
   schedule:
     - cron: '0 8,20,23 * * *'
 jobs:
