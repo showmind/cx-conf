@@ -37,8 +37,8 @@ jobs:
           remote_addr=`git remote get-url --push origin`
           remote_addr=`echo $remote_addr|  awk -F'://' '{print $2}'`
           remote_addr=https://showmind:${{ secrets.GITHUB_TOKEN }}@${remote_addr}
-          git remote add origin ${remote_addr}
-          git push origin dist --force
+          git remote add neo ${remote_addr}
+          git push neo dist --force
 
 
 
