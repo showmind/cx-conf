@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
   schedule:
-    - cron: '0 8,20,23 * * *'
+    - cron: '0 20 * * *'
 jobs:
   generate-cxxx-conf-job:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
           git checkout -b dist
           git add -A
           git -c user.name='pat' -c user.email='patvice@live.cn' commit -m 'add dist files'
-          remote_addr=https://showmind:${{ secrets.GITHUB_TOKEN }}@github.com/showmind/cx-conf.git
+          remote_addr=https://showmind:${{ secrets.GITHUB_TOKEN }}@github.com/showmind/cloudfare-conf.git
           git remote add neo ${remote_addr}
           git push neo dist --force
 
