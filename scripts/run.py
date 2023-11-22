@@ -28,18 +28,18 @@ vless_tpl = """vless://6386b476-d9b1-4ec8-953c-d682a22a01f7@{ip}:80?encryption=n
 clash_tpl = """  - type: vless
     name: {name}
     server: {ip}
-    port: 80
+    port: 443
     uuid: 6386b476-d9b1-4ec8-953c-d682a22a01f7
     network: ws
-    tls: false
+    tls: true
     udp: false
-    sni: hello.patvice.workers.dev
+    sni: cfhello.patvice.top
     client-fingerprint: chrome
     skip-cert-verify: true
     ws-opts:
       path: "/?ed=2048"
       headers:
-        host: hello.patvice.workers.dev
+        host: cfhello.patvice.top
 """
 
 
