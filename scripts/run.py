@@ -66,13 +66,23 @@ if __name__ == '__main__':
     clash_tplstr = ""
     names = []
 
-    for server in host_list:
-        print(server)
+    servers = []
+
+    # prefer server
+
+    servers.append({"ip": "162.159.134.216", "name": "HKG"})
+    servers.append({"ip": "104.17.212.213", "name": "SJC"})
+
+    for ip in host_list:
         dic = {"ip": server['ip'], "name": 'Worker-' +
                server['line']+'-'+server['colo']+'-'+server['ip']}
-        vless_tplstr += vless_tpl.format(**dic)
-        clash_tplstr += clash_tpl.format(**dic)
-        names.append(dic['name'])
+        servers.append(dic)
+
+    for server in servers:
+        print(server)
+        vless_tplstr += vless_tpl.format(**server)
+        clash_tplstr += clash_tpl.format(**server)
+        names.append(server['name'])
 
     with open('vless.txt', 'w') as f:
         f.write(vless_tplstr)
