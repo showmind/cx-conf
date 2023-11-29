@@ -25,8 +25,6 @@ dns:
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies:
-  #- {"type":"vless","name":"HKG","server":"162.159.134.216","port":80,"uuid":"6386b476-d9b1-4ec8-953c-d682a22a01f7","skip-cert-verify":true,"udp":false,"tls":false,"network":"ws","servername":"hello.patvice.workers.dev","ws-opts":{"path":"/?ed=2048","headers":{"host":"hello.patvice.workers.dev"}}}
-  #- {"type":"vless","name":"SJP","server":"104.17.212.213","port":80,"uuid":"6386b476-d9b1-4ec8-953c-d682a22a01f7","skip-cert-verify":true,"udp":false,"tls":false,"network":"ws","servername":"hello.patvice.workers.dev","ws-opts":{"path":"/?ed=2048","headers":{"host":"hello.patvice.workers.dev"}}}
 """
 
 
@@ -64,20 +62,17 @@ proxy3 = """
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
-      - HKG
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
-      - HKG
   - name: 📢 谷歌FCM
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - HKG
   - name: 🎯 全球直连
     type: select
     proxies:
