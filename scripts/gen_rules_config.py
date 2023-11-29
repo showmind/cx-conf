@@ -34,8 +34,6 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - DIRECT
-      - HKG
-      - SJP
 """
 
 proxy2 = """
@@ -45,8 +43,6 @@ proxy2 = """
     interval: 300
     tolerance: 50
     proxies:
-      - HKG
-      - SJP
 """
 
 rule_providers_str = """
