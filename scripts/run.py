@@ -73,7 +73,7 @@ if __name__ == '__main__':
     servers.append({"ip": "162.159.134.216", "name": "HKG"})
     servers.append({"ip": "104.17.212.213", "name": "SJC"})
 
-    for ip in host_list:
+    for server in host_list:
         dic = {"ip": server['ip'], "name": 'Worker-' +
                server['line']+'-'+server['colo']+'-'+server['ip']}
         servers.append(dic)
