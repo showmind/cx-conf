@@ -37,8 +37,6 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - DIRECT
-      - HKG
-      - SJP
 """
 
 proxy2 = """  - name: ♻️ 自动选择
@@ -47,8 +45,6 @@ proxy2 = """  - name: ♻️ 自动选择
     interval: 300
     tolerance: 50
     proxies:
-      - HKG
-      - SJP
 """
 proxy3 = """
   - name: 🌍 国外媒体
@@ -57,8 +53,6 @@ proxy3 = """
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - HKG
-      - SJP
   - name: 📲 电报信息
     type: select
     proxies:
