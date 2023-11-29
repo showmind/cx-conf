@@ -35,7 +35,7 @@ clash_tpl = """  - type: vless
     udp: false
     sni: cfhello.patvice.top
     client-fingerprint: chrome
-    skip-cert-verify: true
+    skip-cert-verify: flase
     ws-opts:
       path: "/?ed=2048"
       headers:
