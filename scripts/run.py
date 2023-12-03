@@ -72,6 +72,9 @@ if __name__ == '__main__':
 
     servers.append({"ip": "162.159.134.216", "name": "HKG"})
     servers.append({"ip": "104.17.212.213", "name": "SJC"})
+    servers.append({"ip": "icook.tw", "name": "icook.tw"})
+    servers.append({"ip": "time.is", "name": "time.is"})
+    servers.append({"ip": "skk.moe", "name": "skk.moe"})
 
     for server in host_list:
         dic = {"ip": server['ip'], "name": 'Worker-' +
