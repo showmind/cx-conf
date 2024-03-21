@@ -104,5 +104,5 @@ if __name__ == '__main__':
     vless_list = [to_vless_node(s) for s in servers]
 
     gen_config_file("../templates/tpl_rule_provider_simple.yml",vless_list)
-    gen_config_file("../templates/tmp_rule_provider.yaml",vless_list)
+    gen_config_file("../templates/tpl_rule_provider.yaml",vless_list)
     gen_config_file("../templates/tpl_rule_direct.yaml",vless_list)

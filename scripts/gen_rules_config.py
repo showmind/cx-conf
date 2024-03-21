@@ -178,5 +178,5 @@ def gen_rules_conf(snip, names):
 
     fstr = str1+snip+proxy1+namestr+proxy2+namestr+rule_providers_str
 
-    with open("../templates/tmp_rule_provider.yaml", "w", encoding="utf-8") as f:
+    with open("../templates/tpl_rule_provider.yaml", "w", encoding="utf-8") as f:
         f.write(fstr)
