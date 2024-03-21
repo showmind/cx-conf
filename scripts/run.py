@@ -1,8 +1,7 @@
 import requests
 import json
 
-from gen_rules_config import gen_rules_conf
-from gen_simple_config import gen_simple_conf
+from run_lowlevel import *
 
 url = "https://api.hostmonit.com/get_optimization_ip"
 headers = {
@@ -20,7 +19,6 @@ headers = {
     "sec-fetch-site": "same-site",
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.76"
 }
-
 
 vless_tpl = """vless://6386b476-d9b1-4ec8-953c-d682a22a01f7@{ip}:80?encryption=none&security=none&sni=hello.patvice.workers.dev&fp=randomized&type=ws&host=hello.patvice.workers.dev&path=%2F%3Fed%3D2048#{name}
 """
@@ -59,6 +57,28 @@ def ips():
         print("请求失败，状态码：", response.status_code)
 
 
+def to_vless_node(info: dict):
+    return {
+        'type': 'vless',
+        'name': info['name'],
+        'server': info['ip'],
+        'port': 443,
+        'uuid': '6386b476-d9b1-4ec8-953c-d682a22a01f7',
+        'network': 'ws',
+        'tls': True,
+        'udp': False,
+        'sni': 'cfhello.patvice.top',
+        'client-fingerprint': 'chrome',
+        'skip-cert-verify': False,
+        'ws-opts': {
+            'path': "/?ed=2048",
+            'headers': {
+                'host': 'cfhello.patvice.top'
+            }
+        }
+    }
+
+
 if __name__ == '__main__':
     host_list = ips()
 
@@ -78,21 +98,11 @@ if __name__ == '__main__':
 
     for server in host_list:
         dic = {"ip": server['ip'], "name": 'Worker-' +
-               server['line']+'-'+server['colo']+'-'+server['ip']}
+                                           server['line'] + '-' + server['colo'] + '-' + server['ip']}
         servers.append(dic)
 
-    for server in servers:
-        print(server)
-        vless_tplstr += vless_tpl.format(**server)
-        clash_tplstr += clash_tpl.format(**server)
-        names.append(server['name'])
+    vless_list = [to_vless_node(s) for s in servers]
 
-    with open('vless.txt', 'w') as f:
-        f.write(vless_tplstr)
-
-    with open('clash-proxies.yaml', 'w') as f:
-        f.write(clash_tplstr)
-
-    gen_rules_conf(clash_tplstr, names)
-    print(clash_tplstr)
-    gen_simple_conf(clash_tplstr, names)
+    gen_config_file("../templates/tpl_rule_provider_simple.yml",vless_list)
+    gen_config_file("../templates/tmp_rule_provider.yaml",vless_list)
+    gen_config_file("../templates/tpl_rule_direct.yaml",vless_list)

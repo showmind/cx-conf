@@ -1,6 +1,4 @@
 
-
-str1 = """
 #
 #-------------------------------------------------------------#
 #  创建时间：2023-10-25 23:49:10
@@ -22,28 +20,21 @@ dns:
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies:
-"""
 
-
-proxy1 = """
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - DIRECT
-"""
 
-proxy2 = """
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-"""
 
-rule_providers_str = """
 rule-providers:
   reject:
     type: http
@@ -166,17 +157,3 @@ rules:
 #   - GEOIP,CN,DIRECT
 #   - MATCH,🚀 节点选择
 
-"""
-
-
-def gen_rules_conf(snip, names):
-
-    namestr = ""
-
-    for name in names:
-        namestr += f"      - {name}\n"
-
-    fstr = str1+snip+proxy1+namestr+proxy2+namestr+rule_providers_str
-
-    with open("../templates/tmp_rule_provider.yaml", "w", encoding="utf-8") as f:
-        f.write(fstr)

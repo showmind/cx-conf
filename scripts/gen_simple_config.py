@@ -3545,5 +3545,5 @@ def gen_simple_conf(snip, names):
 
     fstr = str1 + snip + proxy1+namestr+proxy2+namestr+proxy3+rules
 
-    with open("simple-conf.yaml", "w", encoding="utf-8") as f:
+    with open("../templates/tpl_rule_direct.yaml", "w", encoding="utf-8") as f:
         f.write(fstr)
