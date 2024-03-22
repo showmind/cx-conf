@@ -43,7 +43,7 @@ proxy-groups:
     proxies:
       - DIRECT
       - 🚀节点选择
-      - ♻️自动选择
+      - ♻️自动择优
 
 rule-providers:
   reject:
