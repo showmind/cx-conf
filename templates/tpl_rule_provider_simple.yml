@@ -30,16 +30,14 @@ proxy-groups:
     proxies:
       - ♻️自动择优
       - DIRECT
-      - HKG
-      - SJP
+
   - name: ♻️自动择优
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-      - HKG
-      - SJP
+
   - name: 🎯 全球直连
     type: select
     proxies:
