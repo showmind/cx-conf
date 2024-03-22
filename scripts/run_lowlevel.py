@@ -63,8 +63,9 @@ def gen_config_file(tpl, vless_list):
 
     config.add_proxy(warp_wg)
 
+    for vless in vless_list:
+        config.add_proxy(vless)
 
-
-    name_= os.path.basename(tpl).lstrip("tpl_")
+    name_ = os.path.basename(tpl).lstrip("tpl_")
     with open(name_, mode="w", encoding='utf-8') as file:
         file.write(config.to_yaml())
