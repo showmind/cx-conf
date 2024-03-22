@@ -38,12 +38,12 @@ proxy-groups:
     tolerance: 50
     proxies:
 
-  - name: 🎯 全球直连
+  - name: 🎯全球直连
     type: select
     proxies:
       - DIRECT
-      - 🚀 节点选择
-      - ♻️ 自动选择
+      - 🚀节点选择
+      - ♻️自动选择
 
 rule-providers:
   reject:
